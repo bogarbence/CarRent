@@ -26,7 +26,7 @@ namespace VU
             _container.Singleton<IWindowManager, WindowManager>();
             _container.Singleton<IEventAggregator, EventAggregator>();
             _container.Singleton<ShellViewModel, ShellViewModel>();
-            _container.Singleton<TestViewModel, TestViewModel>();
+            _container.Singleton<CarListViewModel, CarListViewModel>();
             _container.Singleton<AddCarViewModel, AddCarViewModel>();
             _container.Singleton<AddReservationViewModel, AddReservationViewModel>();
             _container.Singleton<CarStatusViewModel, CarStatusViewModel>();

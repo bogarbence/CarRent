@@ -28,8 +28,8 @@ namespace VU.Views
         }
         private void CarList(object sender, RoutedEventArgs e)
         {
-            IoC.Get<ShellViewModel>().ActivateItem(IoC.Get<TestViewModel>());
-            IoC.Get<TestViewModel>().getCarList();
+            IoC.Get<ShellViewModel>().ActivateItem(IoC.Get<CarListViewModel>());
+            IoC.Get<CarListViewModel>().getCarList();
         }
 
         private void AddCar(object sender, RoutedEventArgs e)
@@ -40,7 +40,7 @@ namespace VU.Views
         private void AddReservation(object sender, RoutedEventArgs e)
         {
             IoC.Get<AddReservationViewModel>().SelectedCar = null;
-            IoC.Get<AddReservationViewModel>().CarList = IoC.Get<TestViewModel>().refCarList();
+            IoC.Get<AddReservationViewModel>().CarList = IoC.Get<CarListViewModel>().refCarList();
             IoC.Get<ShellViewModel>().ActivateItem(IoC.Get<AddReservationViewModel>());
         }
 
@@ -57,7 +57,7 @@ namespace VU.Views
         private void Riports(object sender, RoutedEventArgs e)
         {
             IoC.Get<RiportsViewModel>().ResList = IoC.Get<ReservationListViewModel>().refReservationList();
-            IoC.Get<RiportsViewModel>().CarList = IoC.Get<TestViewModel>().refCarList();
+            IoC.Get<RiportsViewModel>().CarList = IoC.Get<CarListViewModel>().refCarList();
             IoC.Get<ShellViewModel>().ActivateItem(IoC.Get<RiportsViewModel>());
         }
     }

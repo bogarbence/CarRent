@@ -18,19 +18,19 @@ using VU.ViewModels;
 namespace VU.Views
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for CarListView.xaml
     /// </summary>
-    public partial class LoginView : UserControl
+    public partial class CarListView : UserControl
     {
-        public LoginView()
+        public CarListView()
         {
             InitializeComponent();
+            this.DataContext = this;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GetCarList_Click(object sender, RoutedEventArgs e)
         {
-            IoC.Get<LoginViewModel>().Login(userbox.Text, pwbox.Password);
+            IoC.Get<CarListViewModel>().getCarList();
         }
-        
     }
 }

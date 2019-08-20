@@ -14,6 +14,7 @@ namespace VU.ViewModels
 {
     class CarStatusViewModel: Screen
     {
+        #region Variables
         private Car _selectedCar;
         public Car SelectedCar
         {
@@ -41,7 +42,7 @@ namespace VU.ViewModels
             }
         }
 
-        private ObservableCollection<Car> _CarList = IoC.Get<TestViewModel>().CarList;
+        private ObservableCollection<Car> _CarList = IoC.Get<CarListViewModel>().CarList;
         public ObservableCollection<Car> CarList
         {
             get
@@ -54,9 +55,10 @@ namespace VU.ViewModels
                 NotifyOfPropertyChange(() => CarList);
             }
         }
-
+        #endregion
         public void ChangeCarStatus()
         {
+            //Autó státuszának változtatása
             MySqlCommand com = IoC.Get<ShellViewModel>().connection.CreateCommand();
             com.CommandText = "UPDATE Cars SET status=?status where id=" + SelectedCar.id;
             com.Parameters.Add("?status", MySqlDbType.VarChar).Value = Status;
@@ -65,6 +67,7 @@ namespace VU.ViewModels
 
         public void Selected(SelectionChangedEventArgs obj)
         {
+            //Combobox bindingolásához szükséges segédmetódus
             try
             {
                 SelectedCar = (Car)obj.AddedItems[0];
@@ -76,6 +79,7 @@ namespace VU.ViewModels
         }
         public void SelectedStatus(SelectionChangedEventArgs obj)
         {
+            //Combobox bindingolásához szükséges segédmetódus
             Status = (obj.AddedItems[0]).ToString();
             if(Status.Contains("Intact"))
             {

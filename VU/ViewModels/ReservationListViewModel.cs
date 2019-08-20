@@ -12,6 +12,7 @@ namespace VU.ViewModels
 {
     class ReservationListViewModel : Screen
     {
+        #region Variables
         private ObservableCollection<Reservation> _ResList = new ObservableCollection<Reservation>();
         public ObservableCollection<Reservation> ResList
         {
@@ -25,6 +26,7 @@ namespace VU.ViewModels
                 NotifyOfPropertyChange(() => ResList);
             }
         }
+        #endregion
         public ReservationListViewModel()
         {
             getReservationList();
@@ -32,6 +34,7 @@ namespace VU.ViewModels
         }
         public void getReservationList()
         {
+            //Foglalás lista lekérdezése
             ResList.Clear();
             MySqlCommand com = IoC.Get<ShellViewModel>().connection.CreateCommand();
             com.CommandText = "SELECT * FROM Reservations";
@@ -54,11 +57,13 @@ namespace VU.ViewModels
         }
         public ObservableCollection<Reservation> refReservationList()
         {
+            //Más Viewkról hívható, visszaadja a friss foglaláslistát
             getReservationList();
             return ResList;
         }
         public void replaceCars()
         {
+            //A lekérdezett listában kicseréli az ID-kat autó osztályokra
             for (int i = 0; i < ResList.Count; i++)
             {
                 ResList[i].choosenCar = findCarByID(ResList[i].choosenCarID);
@@ -66,6 +71,7 @@ namespace VU.ViewModels
         }
         public Car findCarByID(int id)
         {
+            //id alapján visszaadja az Autót mint osztályt
             MySqlCommand com = IoC.Get<ShellViewModel>().connection.CreateCommand();
             com.CommandText = "SELECT * FROM Cars where id=" + id.ToString();
             MySqlDataReader reader = com.ExecuteReader();

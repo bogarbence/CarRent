@@ -120,7 +120,7 @@
     <Compile Include="ViewModels\ReservationListViewModel.cs" />
     <Compile Include="ViewModels\RiportsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="ViewModels\TestViewModel.cs" />
+    <Compile Include="ViewModels\CarListViewModel.cs" />
     <Compile Include="Views\AddCarView.xaml.cs">
       <DependentUpon>AddCarView.xaml</DependentUpon>
     </Compile>
@@ -142,8 +142,8 @@
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestView.xaml.cs">
-      <DependentUpon>TestView.xaml</DependentUpon>
+    <Compile Include="Views\CarListView.xaml.cs">
+      <DependentUpon>CarListView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -186,7 +186,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TestView.xaml">
+    <Page Include="Views\CarListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,10 +6,11 @@
              xmlns:local="clr-namespace:VU.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Height="450" Width="800" Background="White">
-        <Button Height="20" Width="100" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,200,250,0" Click="Button_Click" >Login</Button>
-        <Grid>
-
-        </Grid>
+    <Grid Background="White" Height="450" Width="800">
+        <Label Margin="20,10,0,0" Content="Username:"/>
+        <TextBox x:Name="userbox"  Height="20" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,13,0,0"></TextBox>
+        <Label Margin="20,40,0,0" Content="Password:"/>
+        <PasswordBox x:Name="pwbox" Height="20" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,43,0,0"></PasswordBox>
+        <Button  Height="20" Width="100" HorizontalAlignment="Left" Margin="20,70,0,0" VerticalAlignment="Top" Click="Button_Click">Login</Button>
     </Grid>
 </UserControl>

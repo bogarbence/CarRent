@@ -15,6 +15,7 @@ namespace VU.ViewModels
     
     class AddCarViewModel : Screen
     {
+        #region Variables
         private Validators validate = new Validators();
         private bool _butEnable = false;
         public bool butEnable
@@ -87,9 +88,10 @@ namespace VU.ViewModels
                 NotifyOfPropertyChange(() => status);
             }
         }
-
+        #endregion
         public void createCar()
         {
+            //Autó class kreálása
             Car newCar = new Car();
             newCar.modell = modell;
             newCar.licenseplate = licensePlate;
@@ -100,6 +102,7 @@ namespace VU.ViewModels
         }
         public void addCarToDB(Car newCar)
         {
+            //Autó hozzáadása az adatbázishoz
             MySqlCommand com = IoC.Get<ShellViewModel>().connection.CreateCommand();
             com.CommandText = "INSERT INTO Cars(modell,licenseplate,price,status,available) VALUES(?modell,?licenseplate,?price,?status,?available)";
             com.Parameters.Add("?modell", MySqlDbType.VarChar).Value = newCar.modell;
@@ -112,6 +115,7 @@ namespace VU.ViewModels
         }
         public void SelectedStatus(SelectionChangedEventArgs obj)
         {
+            //Combobox bindingolásához szükséges segédmetódus
             status = (obj.AddedItems[0]).ToString();
             if (status.Contains("Intact"))
             {
@@ -124,6 +128,7 @@ namespace VU.ViewModels
         }
         public void butValidator()
         {
+            //Validáció
             if (validate.IsNullOrEmpty(modell) || validate.IsNullOrEmpty(licensePlate) || validate.IsNullOrEmpty(price) || !validate.IsNumber(price) ||validate.IsNullOrEmpty(status))
             {
                 butEnable = false;

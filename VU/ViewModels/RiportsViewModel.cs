@@ -17,6 +17,7 @@ namespace VU.ViewModels
 {
     class RiportsViewModel : Screen
     {
+        #region
         private DateTime _EndDate = DateTime.Now;
         public DateTime EndDate
         {
@@ -56,7 +57,7 @@ namespace VU.ViewModels
                 NotifyOfPropertyChange(() => ResList);
             }
         }
-        private ObservableCollection<Car> _CarList = IoC.Get<TestViewModel>().CarList;
+        private ObservableCollection<Car> _CarList = IoC.Get<CarListViewModel>().CarList;
         public ObservableCollection<Car> CarList
         {
             get
@@ -69,7 +70,7 @@ namespace VU.ViewModels
                 NotifyOfPropertyChange(() => CarList);
             }
         }
-        private ObservableCollection<Car> _BrokenCarList = IoC.Get<TestViewModel>().CarList;
+        private ObservableCollection<Car> _BrokenCarList = IoC.Get<CarListViewModel>().CarList;
         public ObservableCollection<Car> BrokenCarList
         {
             get
@@ -82,10 +83,12 @@ namespace VU.ViewModels
                 NotifyOfPropertyChange(() => BrokenCarList);
             }
         }
+        #endregion
         public void GenerateBrokenCarList()
         {
+            //Kreál egy listát az összes törött autóval
             string pdfcontent = "";
-            CarList = IoC.Get<TestViewModel>().refCarList();
+            CarList = IoC.Get<CarListViewModel>().refCarList();
             int counter = 1;
             for (int i = 0; i < CarList.Count; i++)
             {
@@ -99,6 +102,7 @@ namespace VU.ViewModels
         }
         public void GenerateWeeklyReservations()
         {
+            //Lekéri az ezen a héten végződő foglalásokat
             string pdfcontent = "";
             DateTime startOfWeek = DateTime.Today.AddDays((-1 * (Int32)DateTime.Now.DayOfWeek) + 1);
             DateTime endOfWeek = DateTime.Today.AddDays(7 - (Int32)DateTime.Now.DayOfWeek);
@@ -144,6 +148,7 @@ namespace VU.ViewModels
         }
         public void GenerateMostProfitableCar()
         {
+            //Lekéri az adott időintervallumban a legnagyobb profitot termelő autót
             int biggestpricecarID = 0;
             int biggestPrice = 0;
             for (int i = 0; i < CarList.Count; i++)
@@ -189,6 +194,7 @@ namespace VU.ViewModels
         }
         public void GeneratePDF(string title, string content)
         {
+            //PDF-et generál
             PdfDocument pdf = new PdfDocument();
             pdf.Info.Title = title;
             PdfPage pdfPage = pdf.AddPage();

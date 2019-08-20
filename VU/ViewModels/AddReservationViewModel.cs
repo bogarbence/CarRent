@@ -84,7 +84,7 @@ namespace VU.ViewModels
             }
         }
 
-        private ObservableCollection<Car> _CarList = IoC.Get<TestViewModel>().CarList;
+        private ObservableCollection<Car> _CarList = IoC.Get<CarListViewModel>().CarList;
         public ObservableCollection<Car> CarList
         {
             get
@@ -114,7 +114,8 @@ namespace VU.ViewModels
 
         public void CreateReservation()
         {
-            CarList = IoC.Get<TestViewModel>().CarList;
+            //Foglalás osztály kreálása
+            CarList = IoC.Get<CarListViewModel>().CarList;
             Reservation newRes = new Reservation();
             newRes.choosenCar = SelectedCar;
             newRes.startDate = StartDate;
@@ -129,6 +130,7 @@ namespace VU.ViewModels
         }
         public void addReservationToDB(Reservation newRes)
         {
+            //Foglalás hozzáadása az adatbázishoz
             MySqlCommand com = IoC.Get<ShellViewModel>().connection.CreateCommand();
             com.CommandText = "INSERT INTO Reservations(startDate,endDate,choosenCarID,comment) VALUES(?startDate,?endDate,?choosenCarID,?comment)";
             com.Parameters.Add("?startDate", MySqlDbType.DateTime).Value = newRes.startDate;
@@ -140,6 +142,7 @@ namespace VU.ViewModels
         }
         public void calculatePrice()
         {
+            //Ár kiszámítása
             Double diff = (EndDate - StartDate).TotalHours;
             diff = (Math.Ceiling(diff)) * SelectedCar.price;
             if (diff <= 0)
@@ -153,6 +156,7 @@ namespace VU.ViewModels
         }
         public void Selected(SelectionChangedEventArgs obj)
         {
+            //Combobox bindingolásához szükséges segédmetódus
             try
             {
                 SelectedCar = (Car)obj.AddedItems[0];
@@ -164,6 +168,7 @@ namespace VU.ViewModels
         }
         public bool Validate(Reservation newRes)
         {
+            //Validáció
             if (((ObservableCollection<Reservation>)(IoC.Get<ReservationListViewModel>().ResList)).Count == 0)
             {
                 IoC.Get<ReservationListViewModel>().getReservationList();

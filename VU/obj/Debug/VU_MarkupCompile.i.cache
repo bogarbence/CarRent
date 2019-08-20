@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Bence\Desktop\VU\VU\obj\Debug\
+G:\VU\VU\obj\Debug\
 VU
 none
 false
 DEBUG;TRACE
-C:\Users\Bence\Desktop\VU\VU\App.xaml
-9-1341729441
+G:\VU\VU\App.xaml
+9-1829514472
 
-26886399430
-86-179035774
-MainWindow.xaml;Views\AddCarView.xaml;Views\AddReservationView.xaml;Views\CarStatusView.xaml;Views\LoginView.xaml;Views\ReservationListView.xaml;Views\RiportsView.xaml;Views\ShellView.xaml;Views\TestView.xaml;
+261735164218
+86145128146
+MainWindow.xaml;Views\AddCarView.xaml;Views\AddReservationView.xaml;Views\CarStatusView.xaml;Views\LoginView.xaml;Views\ReservationListView.xaml;Views\RiportsView.xaml;Views\ShellView.xaml;Views\CarListView.xaml;
 
 False
 

@@ -1,12 +1,12 @@
 ﻿
-FC:\Users\Bence\Desktop\VU\VU\App.xaml;;
-FC:\Users\Bence\Desktop\VU\VU\MainWindow.xaml;;
-FC:\Users\Bence\Desktop\VU\VU\Views\AddCarView.xaml;;
-FC:\Users\Bence\Desktop\VU\VU\Views\AddReservationView.xaml;;
-FC:\Users\Bence\Desktop\VU\VU\Views\CarStatusView.xaml;;
-FC:\Users\Bence\Desktop\VU\VU\Views\LoginView.xaml;;
-FC:\Users\Bence\Desktop\VU\VU\Views\ReservationListView.xaml;;
-FC:\Users\Bence\Desktop\VU\VU\Views\RiportsView.xaml;;
-FC:\Users\Bence\Desktop\VU\VU\Views\ShellView.xaml;;
-FC:\Users\Bence\Desktop\VU\VU\Views\TestView.xaml;;
+FG:\VU\VU\App.xaml;;
+FG:\VU\VU\MainWindow.xaml;;
+FG:\VU\VU\Views\AddCarView.xaml;;
+FG:\VU\VU\Views\AddReservationView.xaml;;
+FG:\VU\VU\Views\CarStatusView.xaml;;
+FG:\VU\VU\Views\LoginView.xaml;;
+FG:\VU\VU\Views\ReservationListView.xaml;;
+FG:\VU\VU\Views\RiportsView.xaml;;
+FG:\VU\VU\Views\ShellView.xaml;;
+FG:\VU\VU\Views\CarListView.xaml;;
 
