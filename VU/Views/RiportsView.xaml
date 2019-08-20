@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="VU.Views.RiportsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VU.Views"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White" Height="450" Width="800">
+        <Label Margin="20,10,0,0">Most profitable car</Label>
+        <Label Margin="20,40,0,0" Content="Start Date:"/>
+        <xctk:DateTimePicker Height="25" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,43,0,0" Value="{Binding StartDate}" ValueChanged="DateTimePicker_ValueChanged"></xctk:DateTimePicker>
+        <Label Margin="20,70,0,0" Content="End Date:"/>
+        <xctk:DateTimePicker Height="25" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,73,0,0" Value="{Binding EndDate}" ValueChanged="DateTimePicker_ValueChanged"></xctk:DateTimePicker>
+        <Button Height="38" Width="90" HorizontalAlignment="Left" Margin="370,49,0,0" VerticalAlignment="Top" Click="MProfitCar">Generate</Button>
+        <Rectangle VerticalAlignment="Stretch" Width="1" Margin="396,-257,403,-59" Stroke="Black" RenderTransformOrigin="0.5,0.5" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.188"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Label Margin="20,130,0,0">Weekly reservations</Label>
+        <Button Height="38" Width="90" HorizontalAlignment="Left" Margin="20,160,0,0" VerticalAlignment="Top" Click="WeeklyRes">Generate</Button>
+        <Rectangle VerticalAlignment="Stretch" Width="1" Margin="397,-161,402,-154" Stroke="Black" RenderTransformOrigin="0.5,0.5" >
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.188"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Label Margin="20,230,0,0">Weekly reservations</Label>
+        <Button Height="38" Width="112" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top" Click="BrokenCars">List of Broken Cars</Button>
+    </Grid>
+</UserControl>

@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="VU.Views.AddReservationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:VU.Views"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White" Height="450" Width="800">
+        <Label Margin="20,10,0,0" Content="Car:"/>
+        <ComboBox  Height="20" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,13,0,0" ItemsSource="{Binding CarList}" DisplayMemberPath="modell" cal:Message.Attach="[Event SelectionChanged] = [Action Selected($eventArgs)]" SelectionChanged="ComboBox_SelectionChanged"></ComboBox>
+        <Label Margin="20,40,0,0" Content="Start Date:"/>
+        <xctk:DateTimePicker Height="25" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,43,0,0" Value="{Binding StartDate}" ValueChanged="DateTimePicker_ValueChanged"></xctk:DateTimePicker>
+        <Label Margin="20,70,0,0" Content="End Date:"/>
+        <xctk:DateTimePicker Height="25" Width="250" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,73,0,0"  Value="{Binding EndDate}" ValueChanged="DateTimePicker_ValueChanged_1"></xctk:DateTimePicker>
+        <Label Margin="20,100,0,0" Content="Comment:"/>
+        <TextBox Height="50" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,103,0,0" Text="{Binding Comment}"></TextBox>
+        <Label Margin="20,150,0,0" >Price: </Label>
+        <Label   Margin="100,150,0,0" Content="{Binding Price}"></Label>
+        <Button x:Name="AddRevBtn" Height="20" Width="100" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Click="AddRevBtn_Click">Add Reservation</Button>
+    </Grid>
+</UserControl>
